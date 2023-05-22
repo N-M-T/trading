@@ -25,6 +25,11 @@ class SmaCross(bt.Strategy):
         pslow=30,  # period for the slow moving average
     )
 
+    def log(self, txt, dt=None):
+        pass
+        """ Logging function fot this strategy"""
+        # dt = dt or self.datas[0].datetime.date(0)
+
     def __init__(self):
         sma1 = bt.ind.SMA(period=self.p.pfast)  # fast moving average
         sma2 = bt.ind.SMA(period=self.p.pslow)  # slow moving average
@@ -46,9 +51,10 @@ class BollingerStrategy(bt.Strategy):
     params = (("BBandsperiod", 20),)
 
     def log(self, txt, dt=None):
+        pass
         """ Logging function fot this strategy"""
-        dt = dt or self.datas[0].datetime.date(0)
-        print("%s, %s" % (dt.isoformat(), txt))
+        # dt = dt or self.datas[0].datetime.date(0)
+        # print("%s, %s" % (dt.isoformat(), txt))
 
     def __init__(self):
         # Keep a reference to the "close" line in the data[0] dataseries
